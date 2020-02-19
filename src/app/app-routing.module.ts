@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {IndexComponent} from "./pages/index/index.component";
 
-
-const routes: Routes = [];
+const routes: Routes = [
+    { path: '', component: IndexComponent },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled',onSameUrlNavigation: 'reload' })],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
