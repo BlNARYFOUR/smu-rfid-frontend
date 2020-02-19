@@ -4,9 +4,10 @@
         <h3>Login</h3>
 
         <span *ngIf="loginError" class="show-error">{{loginError}}</span>
+        <span *ngIf="loginMessage" class="show-success">{{loginMessage}}</span>
 
         <form [formGroup]="loginForm" (submit)="loginSubmit()">
-            <div class="cfield" [ngClass]="{'input-error' : loginForm.controls.email.errors}">
+            <div class="cfield" >
                 <input formControlName="email" type="email" placeholder="Email address">
                 <i class="fas fa-user"></i>
             </div>
@@ -15,7 +16,7 @@
                         <span *ngIf="loginForm.controls.email.errors.email">Email is invalid.</span>
                     </span>
             </div>
-            <div class="cfield" [ngClass]="{'input-error' : loginForm.controls.password.errors}">
+            <div class="cfield">
                 <input formControlName="password" type="password" placeholder="Password">
                 <i class="fas fa-key"></i>
             </div>

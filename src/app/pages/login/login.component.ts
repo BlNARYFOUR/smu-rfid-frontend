@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'app-index',
@@ -13,11 +13,13 @@ export class LoginComponent implements OnInit {
 
     loginForm: FormGroup;
     loginError: string;
+    loginMessage: string;
 
     constructor(
         private _formBuilder: FormBuilder,
         private _authService: AuthService,
-        private _route: ActivatedRoute) {
+        private _route: ActivatedRoute,
+        private _router: Router) {
         this.createForms();
     }
 
@@ -38,13 +40,15 @@ export class LoginComponent implements OnInit {
         this._authService.login(this.loginForm.value).subscribe({
             next: (data: any) => {
                 this.loginForm.reset();
-                this.loginError = 'You have been logged in!';
+                this.loginMessage = 'You have been logged in!';
                 console.log(data);
                 AuthService.token = data.access_token;
                 localStorage.setItem('ACCESS_TOKEN', data.access_token);
-                //this.getLoggedInUser();
-                //this.loginActive = false;
                 window.scrollTo(0,0);
+
+                setTimeout(() => {
+                    this._router.navigateByUrl('/dashboard');
+                }, 2000);
             },
             error: (data: any) => {
                 this.loginForm.reset();
