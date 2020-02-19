@@ -1,0 +1,29 @@
+
+<div class="login w-100 h-100 bg-darker text-center">
+    <div class="account-popup bg-white d-inline-block">
+        <h3>Login</h3>
+
+        <span *ngIf="loginError" class="show-error">{{loginError}}</span>
+
+        <form [formGroup]="loginForm" (submit)="loginSubmit()">
+            <div class="cfield" [ngClass]="{'input-error' : loginForm.controls.email.errors}">
+                <input formControlName="email" type="email" placeholder="Email address">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-error-message">
+                    <span *ngIf="loginForm.controls.email.invalid">
+                        <span *ngIf="loginForm.controls.email.errors.email">Email is invalid.</span>
+                    </span>
+            </div>
+            <div class="cfield" [ngClass]="{'input-error' : loginForm.controls.password.errors}">
+                <input formControlName="password" type="password" placeholder="Password">
+                <i class="fas fa-key"></i>
+            </div>
+
+            <button [ngClass]="{'login-button-invalid' : (loginForm.pristine || loginForm.invalid || loginForm.pending)}" type="submit" [disabled]="loginForm.pristine || loginForm.invalid || loginForm.pending">
+                <span *ngIf="!loginForm.pending">Login</span>
+                <span *ngIf="loginForm.pending">Pending</span>
+            </button>
+        </form>
+    </div>
+</div>
