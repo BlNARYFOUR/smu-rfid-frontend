@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AppService} from "../../services/app.service";
 
 @Component({
     selector: 'app-index',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
     loginMessage: string;
 
     constructor(
+        private _appService: AppService,
         private _formBuilder: FormBuilder,
         private _authService: AuthService,
         private _route: ActivatedRoute,
@@ -24,7 +26,14 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log("PAGE: LOGIN");
 
+        let token = localStorage.getItem('ACCESS_TOKEN');
+        AuthService.token = token;
+
+        if(token != null) {
+            this._appService.redirect("/dashboard");
+        }
     }
 
     createForms() {

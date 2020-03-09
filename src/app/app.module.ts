@@ -4,15 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LoginComponent} from "./pages/login/login.component";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { RedirectComponent } from './pages/redirect/redirect.component';
+import {TokenInterceptor} from "./services/token.interceptor";
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
-        DashboardComponent
+        DashboardComponent,
+        RedirectComponent
     ],
     imports: [
         BrowserModule,
@@ -21,7 +24,13 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
         AppRoutingModule,
         HttpClientModule
     ],
-    providers: [],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

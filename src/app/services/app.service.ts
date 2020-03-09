@@ -1,15 +1,27 @@
 import { Injectable } from '@angular/core';
+import {Router} from "@angular/router";
+import {AuthService} from "./auth.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AppService {
 
-    public static isRedirecting: boolean = false;
+    public static redirectUrl: string = "";
 
-    constructor() { }
+    constructor(
+        private _router: Router
+    ) { }
 
-    public static setIsRedirecting(val: boolean) {
-        AppService.isRedirecting = val;
+    public redirect(urlOnSuccess: string) {
+        console.log("app redirect:", urlOnSuccess);
+        AppService.redirectUrl = urlOnSuccess;
+        this._router.navigateByUrl('/redirect');
+    }
+
+    public checkTokenRedirect(component) {
+        if(AuthService.token == null) {
+            this.redirect(component._router.url);
+        }
     }
 }

@@ -44,8 +44,8 @@ export class AuthService {
     }
 
     public getLoggedIn() {
-        return this._http.get(this.getLoggedInUrl, {
+        return this._http.get(this.getLoggedInUrl /*, {
             headers: {'Authorization': 'Bearer ' + AuthService.token}
-        });
+        }*/);
     }
 }
