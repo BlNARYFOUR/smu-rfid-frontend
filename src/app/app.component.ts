@@ -19,8 +19,9 @@ export class AppComponent implements AfterContentChecked {
         let token = localStorage.getItem('ACCESS_TOKEN');
 
         AuthService.token = token;
-        if(token != null) {
 
+        if(token != null) {
+            this.checkLoginStatus();
         } else {
             _router.navigateByUrl('/login');
         }
@@ -28,5 +29,21 @@ export class AppComponent implements AfterContentChecked {
 
     ngAfterContentChecked(): void {
         this._changeDetector.detectChanges();
+    }
+
+    checkLoginStatus = () => {
+        this._authService.getLoggedIn().subscribe({
+            next: (data: any) => {
+                console.log(data);
+                window.scrollTo(0,0);
+                this._router.navigateByUrl('/dashboard');
+            },
+            error: (data: any) => {
+                console.log("LOGIN CHECK:", data.error);
+                console.log("UNAUTHENTICATED: REDIRECTING...");
+                window.scrollTo(0,0);
+                this._router.navigateByUrl('/login');
+            }
+        });
     }
 }

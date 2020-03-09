@@ -8,10 +8,10 @@ import {BehaviorSubject} from "rxjs/index";
 })
 export class AuthService {
     private loginUrl: string = environment.apiUrl + 'auth/login';
-    private registerUrl: string = environment.apiUrl + 'register';
-    private verifyUrl: string = environment.apiUrl + 'verify';
-    private logoutUrl: string = environment.apiUrl + 'logout';
-    private getLoggedInUrl: string = environment.apiUrl + 'logged-in';
+    private registerUrl: string = environment.apiUrl + 'auth/register';
+    private verifyUrl: string = environment.apiUrl + 'auth/verify';
+    private logoutUrl: string = environment.apiUrl + 'auth/logout';
+    private getLoggedInUrl: string = environment.apiUrl + 'auth/logged-in';
 
     public static token = null;
     public static isLoggedIn = false;
@@ -20,26 +20,32 @@ export class AuthService {
 
     constructor(private _http: HttpClient) { }
 
-    public static getChangeIDs() {
-        return {
-            INIT: null,
-            SET_LOGGED_IN: 0,
-            SET_USER: 1
-        }
-    }
+    // public static getChangeIDs() {
+    //     return {
+    //         INIT: null,
+    //         SET_LOGGED_IN: 0,
+    //         SET_USER: 1
+    //     }
+    // }
 
-    public static markChanged(id) {
-        console.log("CHANGED: markChanged");
-        AuthService.changes.next(id);
-    }
+    // public static markChanged(id) {
+    //     console.log("CHANGED: markChanged");
+    //     AuthService.changes.next(id);
+    // }
 
-    public static setLoggedIn(val) {
-        AuthService.isLoggedIn = val;
-        //console.log("CHANGED: setLoggedIn");
-        AuthService.markChanged(AuthService.getChangeIDs().SET_LOGGED_IN);
-    }
+    // public static setLoggedIn(val) {
+    //     AuthService.isLoggedIn = val;
+    //     //console.log("CHANGED: setLoggedIn");
+    //     AuthService.markChanged(AuthService.getChangeIDs().SET_LOGGED_IN);
+    // }
 
     public login(userInfo: any) {
         return this._http.post(this.loginUrl, userInfo);
+    }
+
+    public getLoggedIn() {
+        return this._http.get(this.getLoggedInUrl, {
+            headers: {'Authorization': 'Bearer ' + AuthService.token}
+        });
     }
 }
