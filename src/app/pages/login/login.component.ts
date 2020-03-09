@@ -46,9 +46,10 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('ACCESS_TOKEN', data.access_token);
                 window.scrollTo(0,0);
 
-                setTimeout(() => {
+                this._router.navigateByUrl('/dashboard');
+                /*setTimeout(() => {
                     this._router.navigateByUrl('/dashboard');
-                }, 2000);
+                }, 2000);*/
             },
             error: (data: any) => {
                 this.loginForm.reset();

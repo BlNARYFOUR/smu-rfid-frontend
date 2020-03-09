@@ -1,3 +1,36 @@
+#login-wall-carousel {
+  [id^=login-wall-item] {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  #login-wall-item-1 {
+    background-image: url("../../../assets/media/login_wallpaper_01.jpg");
+  }
+
+  #login-wall-item-2 {
+    background-image: url("../../../assets/media/login_wallpaper_02.jpg");
+  }
+
+  #login-wall-item-3 {
+    background-image: url("../../../assets/media/login_wallpaper_03.jpg");
+  }
+
+  #login-wall-item-4 {
+    background-image: url("../../../assets/media/login_wallpaper_04.jpg");
+  }
+
+  #login-wall-item-5 {
+    background-image: url("../../../assets/media/login_wallpaper_05.jpg");
+  }
+}
+
 .login {
   overflow: auto;
   line-height: 100vh;
