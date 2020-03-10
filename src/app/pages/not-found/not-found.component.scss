@@ -1,0 +1,18 @@
+$color-1: #79bffa;
+$color-2: #0f3389;
+$color-3: #4392f1;
+$color-4: #ffffff;
+$color-5: #006494;
+
+.text-giant {
+  display: inline-block;
+  font-size: 275px;
+  font-weight: bold;
+  letter-spacing: -15px;
+
+  color: $color-3;  /* Fallback: assume this color ON TOP of image */
+  background: url('../../../assets/media/wallpaper_lost.jpg') no-repeat center top;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
