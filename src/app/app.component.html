@@ -1,9 +1,10 @@
-<header *ngIf="!isLoginOrRedirectPage()" class="d-flex flex-row justify-content-between">
-    <div class="h-100">
+<header *ngIf="!isLoginOrRedirectPage()" class="d-flex flex-row justify-content-between pr-5 pl-5">
+    <div class="h-100 d-flex flex-column flex-wrap justify-content-center">
         <span class="logo"></span>
+        <h1 class="text-uppercase d-inline-block pt-1 pl-5">Dashboard</h1>
     </div>
-    <div class="h-100">
-        <span class="logout-btn"></span>
+    <div class="h-100 d-flex flex-column justify-content-center pr-2 pt-1">
+        <span class="logout-btn btn btn-outline-light text-uppercase">Logout</span>
     </div>
 </header>
 
