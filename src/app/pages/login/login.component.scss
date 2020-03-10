@@ -1,4 +1,8 @@
-
+$color-1: #79bffa;
+$color-2: #0f3389;
+$color-3: #4392f1;
+$color-4: #ffffff;
+$color-5: #006494;
 
 #login-wall-carousel {
   [id^=login-wall-item] {
@@ -36,11 +40,11 @@
 .login {
   overflow: auto;
   line-height: 100vh;
-  background-color: rgb(97, 186, 226);
+  background-color: $color-1;
 
   > div {
     border-radius: 30px;
-    box-shadow: 0 0 45px 0 rgb(47, 47, 47);
+    box-shadow: 0 0 45px 0 black;
     margin-top: 20px;
     margin-bottom: 20px;
     line-height: normal;
@@ -52,7 +56,7 @@
 
     h3 {
       width: 100%;
-      color: #222;
+      color: $color-2;
       font-weight: 700;
       margin: 0 0 40px;
       line-height: 10px;
@@ -92,7 +96,7 @@
         }
 
         > i {
-          color: #35568c;
+          color: $color-2;
           position: absolute;
           top: 15px;
           right: 20px;
@@ -105,12 +109,11 @@
         height: 60px;
         font-size: 17px;
         font-weight: 700;
-        //letter-spacing: .3px;
         margin-top: 25px;
         border-radius: 8px;
         color: white;
-        border: 2px solid #35568c;
-        background: #35568c;
+        border: 2px solid $color-2;
+        background: $color-2;
         outline: none;
 
         &.login-button-invalid {
@@ -125,20 +128,6 @@
         width: 100%;
         color: #f4516c;
         position: relative;
-      }
-
-      > .register-name {
-        margin-bottom: 25px;
-      }
-
-      > .register-confirm-pass {
-        margin-top: 25px;
-      }
-
-      > .create-account {
-        margin-top: 30px;
-        color: #35568c;
-        font-size: 14px;
       }
     }
   }

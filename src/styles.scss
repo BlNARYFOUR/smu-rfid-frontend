@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-/*
-@import '~bootstrap/dist/css/bootstrap-reboot.min.css';
-@import '~bootstrap/dist/css/bootstrap.min.css';
-*/
+$color-1: #79bffa;
+$color-2: #0f3389;
+$color-3: #4392f1;
+$color-4: #ffffff;
+$color-5: #006494;
 
 html, body {
   height: 100%;
@@ -15,7 +16,7 @@ html, body {
 }
 
 .wall-overlay {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 80, 0.25);
   width: 100%;
   height: 100%;
   position: absolute;
