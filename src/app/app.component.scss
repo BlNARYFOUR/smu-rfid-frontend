@@ -1,0 +1,13 @@
+header {
+  height: 90px;
+  background: rgb(15, 51, 137);
+  background-size: cover;
+
+  .logo {
+    background: no-repeat url('../assets/media/SMU_logo.png') center center;
+    background-size: contain;
+    width: 70px;
+    height: 100%;
+    display: block;
+  }
+}

@@ -1,3 +1,5 @@
+
+
 #login-wall-carousel {
   [id^=login-wall-item] {
     background-size: cover;
@@ -45,30 +47,8 @@
     width: 460px;
     position: relative;
     vertical-align: middle;
-    //position: absolute;
-    //left: 50%;
-    //top: 50%;
-    //-webkit-transform: translateY(-50%) translateX(-50%);
-    //transform: translateY(-50%) translateX(-50%);
     text-align: center;
     padding: 50px;
-
-    > .close {
-      border: 1px solid #35568c;
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50px;
-      height: 50px;
-      text-shadow: none;
-      color: white;
-      background: #35568c;
-      line-height: 47px;
-      font-size: 30px;
-      cursor: pointer;
-      opacity: 1;
-    }
 
     h3 {
       width: 100%;

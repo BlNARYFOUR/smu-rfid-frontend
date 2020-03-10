@@ -1,4 +1,11 @@
-<header *ngIf="!isLoginOrRedirectPage()"><span>Temp header fill</span></header>
+<header *ngIf="!isLoginOrRedirectPage()" class="d-flex flex-row justify-content-between">
+    <div class="h-100">
+        <span class="logo"></span>
+    </div>
+    <div class="h-100">
+        <span class="logout-btn"></span>
+    </div>
+</header>
 
 <router-outlet></router-outlet>
 
