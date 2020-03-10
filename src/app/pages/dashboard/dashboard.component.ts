@@ -13,7 +13,6 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-      console.log("PAGE: DASHBOARD");
       this._appService.checkTokenRedirect();
   }
 
