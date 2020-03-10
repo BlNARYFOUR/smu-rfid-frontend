@@ -6,7 +6,6 @@ import {RedirectComponent} from "./pages/redirect/redirect.component";
 
 const routes: Routes = [
     { path: '', component: RedirectComponent },
-    { path: 'redirect', component: RedirectComponent },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
 ];

@@ -16,7 +16,7 @@ export class AppService {
     public redirect(urlOnSuccess: string) {
         console.log("app redirect:", urlOnSuccess);
         AppService.redirectUrl = urlOnSuccess;
-        this._router.navigateByUrl('/redirect');
+        this._router.navigateByUrl('/');
     }
 
     public checkTokenRedirect(component) {
