@@ -39,11 +39,7 @@ export class RedirectComponent implements OnInit {
                 }
             },
             error: (data: any) => {
-                localStorage.removeItem('ACCESS_TOKEN');
-                console.log("LOGIN CHECK:", data.error);
                 console.log("UNAUTHENTICATED: REDIRECTING...");
-                window.scrollTo(0,0);
-                this._router.navigateByUrl('/login');
             }
         });
     };
