@@ -27,3 +27,18 @@ html, body {
 .text-light {
   color: $color-1 !important;
 }
+
+.btn {
+  border-width: 2px;
+  border-radius: 18px;
+}
+
+.btn-primary {
+  background-color: $color-2;
+  border-color: $color-2;
+
+  &:hover {
+    background-color: $color-3;
+    border-color: $color-3;
+  }
+}

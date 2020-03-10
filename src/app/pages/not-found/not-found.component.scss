@@ -6,13 +6,18 @@ $color-5: #006494;
 
 .text-giant {
   display: inline-block;
-  font-size: 275px;
+  font-size: 250px;
   font-weight: bold;
-  letter-spacing: -15px;
+  letter-spacing: -12px;
 
   color: $color-3;  /* Fallback: assume this color ON TOP of image */
   background: url('../../../assets/media/wallpaper_lost.jpg') no-repeat center top;
   background-size: cover;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+p {
+  display: inline-block;
+  width: 400px;
 }
