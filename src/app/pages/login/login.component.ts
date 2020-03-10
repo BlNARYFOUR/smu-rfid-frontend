@@ -24,10 +24,9 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
-        let token = localStorage.getItem('ACCESS_TOKEN');
-        AuthService.token = token;
+        AuthService.token = localStorage.getItem('ACCESS_TOKEN');
 
-        if(token != null) {
+        if(AuthService.token  != null) {
             this._appService.redirect("/dashboard");
         }
     }

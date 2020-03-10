@@ -21,7 +21,13 @@ export class AuthService {
         return this._http.post(this.loginUrl, userInfo);
     }
 
-    public getLoggedIn() {
-        return this._http.get(this.getLoggedInUrl);
+    public getLoggedIn(disableRedirect = false) {
+        if(disableRedirect) {
+            return this._http.get(this.getLoggedInUrl, {
+                headers: {'Disable-Redirect': 'true'}
+            });
+        } else {
+            return this._http.get(this.getLoggedInUrl);
+        }
     }
 }

@@ -33,7 +33,11 @@ export class TokenInterceptor implements HttpInterceptor {
                 if (error instanceof HttpErrorResponse) {
                     if (error.status === 401) {
                         localStorage.removeItem('ACCESS_TOKEN');
-                        this._router.navigateByUrl('/login');
+                        AuthService.token = null;
+                        AuthService.user = null;
+                        if(!request.headers.get('Disable-Redirect')) {
+                            this._router.navigateByUrl('/login');
+                        }
                     }
                 }
 
