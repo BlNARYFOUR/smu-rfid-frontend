@@ -13,6 +13,7 @@ export class AuthService {
     private getLoggedInUrl: string = environment.apiUrl + 'auth/logged-in';
 
     public static token = null;
+    public static user = null;
 
     constructor(private _http: HttpClient) { }
 

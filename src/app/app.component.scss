@@ -7,9 +7,9 @@ $color-5: #006494;
 header {
   height: 90px;
   background: $color-3;
-  background: -moz-linear-gradient(138deg, $color-1 40%, $color-2 80%);
-  background: -webkit-linear-gradient(138deg, $color-1 40%, $color-2 80%);
-  background: linear-gradient(138deg, $color-1 40%, $color-2 80%);
+  background: -moz-linear-gradient(138deg, $color-1 40%, $color-2 75%);
+  background: -webkit-linear-gradient(138deg, $color-1 40%, $color-2 75%);
+  background: linear-gradient(138deg, $color-1 40%, $color-2 75%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$color-1,endColorstr=$color-2,GradientType=1);
 
   border-bottom: $color-2 5px solid;
@@ -27,8 +27,12 @@ header {
     display: inline-block;
   }
 
-  .logout-btn {
+  .login-btn {
     border-width: 2px;
     border-radius: 18px;
+
+    &:hover {
+      color: $color-2;
+    }
   }
 }

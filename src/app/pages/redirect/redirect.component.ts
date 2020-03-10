@@ -26,6 +26,7 @@ export class RedirectComponent implements OnInit {
     checkLoginStatus = () => {
         this._authService.getLoggedIn().subscribe({
             next: (data: any) => {
+                AuthService.user = data.data;
                 window.scrollTo(0,0);
 
                 if(this._router.url === "/") {

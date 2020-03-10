@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
                 AuthService.token = data.access_token;
                 localStorage.setItem('ACCESS_TOKEN', data.access_token);
                 window.scrollTo(0,0);
-                this._router.navigateByUrl('/dashboard');
+                this._appService.redirect("/dashboard");
             },
             error: (data: any) => {
                 this.loginForm.reset();

@@ -4,7 +4,8 @@
         <h1 class="text-uppercase d-inline-block pt-1 pl-5">Dashboard</h1>
     </div>
     <div class="h-100 d-flex flex-column justify-content-center pr-2 pt-1">
-        <span class="logout-btn btn btn-outline-light text-uppercase">Logout</span>
+        <span *ngIf="getLoggedInUser()" class="text-white lead">Welcome <span class="text-capitalize font-weight-bold text-light">{{getLoggedInUser()['first_name']}}</span></span>
+        <span class="login-btn btn btn-outline-light text-uppercase mr-2">login</span>
     </div>
 </header>
 

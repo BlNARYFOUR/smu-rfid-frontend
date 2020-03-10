@@ -1,5 +1,6 @@
 import {ChangeDetectorRef, AfterContentChecked, Component} from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -20,5 +21,9 @@ export class AppComponent implements AfterContentChecked {
 
     isLoginOrRedirectPage = () => {
         return (this._router.url === '/login') || (this._router.url === '/');
-    }
+    };
+
+    getLoggedInUser = () => {
+        return AuthService.user;
+    };
 }
