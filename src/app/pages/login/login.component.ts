@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {AppService} from "../../services/app.service";
 
 @Component({
     selector: 'app-index',
-    providers: [AuthService],
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
@@ -20,14 +19,11 @@ export class LoginComponent implements OnInit {
         private _appService: AppService,
         private _formBuilder: FormBuilder,
         private _authService: AuthService,
-        private _route: ActivatedRoute,
         private _router: Router) {
         this.createForms();
     }
 
     ngOnInit() {
-        console.log("PAGE: LOGIN");
-
         let token = localStorage.getItem('ACCESS_TOKEN');
         AuthService.token = token;
 
@@ -50,7 +46,6 @@ export class LoginComponent implements OnInit {
             next: (data: any) => {
                 this.loginForm.reset();
                 this.loginMessage = 'You have been logged in!';
-                console.log(data);
                 AuthService.token = data.access_token;
                 localStorage.setItem('ACCESS_TOKEN', data.access_token);
                 window.scrollTo(0,0);
@@ -58,7 +53,6 @@ export class LoginComponent implements OnInit {
             },
             error: (data: any) => {
                 this.loginForm.reset();
-                console.log(data.error.error);
 
                 if(data.error) {
                     this.loginError = data.error.error ? data.error.error : 'Login failed. Try again later.';

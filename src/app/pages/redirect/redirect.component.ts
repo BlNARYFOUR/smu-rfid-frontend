@@ -14,12 +14,9 @@ export class RedirectComponent implements OnInit {
         private _router: Router) {}
 
     ngOnInit(): void {
-        console.log("PAGE: REDIRECT");
+        AuthService.token = localStorage.getItem('ACCESS_TOKEN');
 
-        let token = localStorage.getItem('ACCESS_TOKEN');
-        AuthService.token = token;
-
-        if(token != null) {
+        if(AuthService.token != null) {
             this.checkLoginStatus();
         } else {
             this._router.navigateByUrl('/login');
@@ -29,11 +26,10 @@ export class RedirectComponent implements OnInit {
     checkLoginStatus = () => {
         this._authService.getLoggedIn().subscribe({
             next: (data: any) => {
-                console.log(data);
                 window.scrollTo(0,0);
 
                 if(this._router.url === "/") {
-                    this._router.navigateByUrl('dashboard');
+                    this._router.navigateByUrl('/dashboard');
                 } else {
                     this._router.navigateByUrl(AppService.redirectUrl);
                 }

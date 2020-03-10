@@ -1,5 +1,4 @@
 import {ChangeDetectorRef, AfterContentChecked, Component} from '@angular/core';
-import {AuthService} from "./services/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,9 +11,14 @@ export class AppComponent implements AfterContentChecked {
 
     constructor(
         private _changeDetector: ChangeDetectorRef,
-        ) {}
+        private _router: Router
+    ) {}
 
     ngAfterContentChecked(): void {
         this._changeDetector.detectChanges();
+    }
+
+    isLoginOrRedirectPage = () => {
+        return (this._router.url === '/login') || (this._router.url === '/');
     }
 }
