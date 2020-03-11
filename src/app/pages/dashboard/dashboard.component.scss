@@ -32,9 +32,7 @@ main {
             font-size: 1.75rem;
           }
 
-
-
-          .fa-users {
+          > .fa-users {
             font-size: 60px;
             color: rgba($color-1, 0.5);
             position: relative;
@@ -50,7 +48,7 @@ main {
             }
           }
 
-          .fa-cars {
+          > .fa-cars {
             display: inline-block;
             width: 75px;
             height: 60px;
@@ -104,6 +102,30 @@ main {
                     bottom: 2px;
                   }
                 }
+              }
+            }
+          }
+
+          > .fa-history {
+            font-size: 60px;
+            color: rgba($color-1, 0.5);
+            position: relative;
+
+            > span {
+              top: calc(50% - 16px);
+              left: calc(50% - 6px);
+              width: 18px;
+              height: 28px;
+              display: block;
+              position: absolute;
+              color: $color-1;
+              text-align: center;
+              overflow: hidden;
+
+              > i {
+                position: absolute;
+                left: -24px;
+                top: -14px;
               }
             }
           }
