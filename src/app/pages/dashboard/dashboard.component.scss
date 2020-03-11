@@ -129,6 +129,30 @@ main {
               }
             }
           }
+
+          > .fa-user {
+            font-size: 60px;
+            color: rgba($color-1, 0.5);
+            position: relative;
+
+            > span {
+              bottom: 0;
+              left: 0;
+              width: 60px;
+              height: 28px;
+              display: block;
+              position: absolute;
+              color: #79bffa;
+              text-align: center;
+              overflow: hidden;
+
+              > i {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+              }
+            }
+          }
         }
       }
     }
