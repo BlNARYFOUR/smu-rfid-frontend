@@ -1,55 +1,57 @@
-<div id="login-wall-carousel" class="carousel slide position-absolute w-100 h-100" data-ride="carousel" data-interval="5000">
-    <ol class="carousel-indicators">
-        <li data-target="#login-wall-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#login-wall-carousel" data-slide-to="1"></li>
-        <li data-target="#login-wall-carousel" data-slide-to="2"></li>
-        <li data-target="#login-wall-carousel" data-slide-to="3"></li>
-        <li data-target="#login-wall-carousel" data-slide-to="4"></li>
-    </ol>
-    <div class="carousel-inner w-100 h-100">
-        <div id="login-wall-item-1" class="carousel-item active w-100 h-100"></div>
-        <div id="login-wall-item-2" class="carousel-item w-100 h-100"></div>
-        <div id="login-wall-item-3" class="carousel-item w-100 h-100"></div>
-        <div id="login-wall-item-4" class="carousel-item w-100 h-100"></div>
-        <div id="login-wall-item-5" class="carousel-item w-100 h-100"></div>
+<main>
+    <div id="login-wall-carousel" class="carousel slide position-absolute w-100 h-100" data-ride="carousel" data-interval="5000">
+        <ol class="carousel-indicators">
+            <li data-target="#login-wall-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#login-wall-carousel" data-slide-to="1"></li>
+            <li data-target="#login-wall-carousel" data-slide-to="2"></li>
+            <li data-target="#login-wall-carousel" data-slide-to="3"></li>
+            <li data-target="#login-wall-carousel" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner w-100 h-100">
+            <div id="login-wall-item-1" class="carousel-item active w-100 h-100"></div>
+            <div id="login-wall-item-2" class="carousel-item w-100 h-100"></div>
+            <div id="login-wall-item-3" class="carousel-item w-100 h-100"></div>
+            <div id="login-wall-item-4" class="carousel-item w-100 h-100"></div>
+            <div id="login-wall-item-5" class="carousel-item w-100 h-100"></div>
+        </div>
+        <a class="carousel-control-prev" href="#login-wall-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#login-wall-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <div class="wall-overlay"></div>
     </div>
-    <a class="carousel-control-prev" href="#login-wall-carousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#login-wall-carousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-    <div class="wall-overlay"></div>
-</div>
 
-<div class="login w-100 h-100 text-center">
-    <div class="account-popup bg-white d-inline-block">
-        <h3>Login</h3>
+    <div class="login w-100 h-100 text-center">
+        <div class="account-popup bg-white d-inline-block">
+            <h3>Login</h3>
 
-        <span *ngIf="loginError" class="show-error">{{loginError}}</span>
-        <span *ngIf="loginMessage" class="show-success">{{loginMessage}}</span>
+            <span *ngIf="loginError" class="show-error">{{loginError}}</span>
+            <span *ngIf="loginMessage" class="show-success">{{loginMessage}}</span>
 
-        <form [formGroup]="loginForm" (submit)="loginSubmit()">
-            <div class="cfield" >
-                <input formControlName="email" type="email" placeholder="Email address">
-                <i class="fas fa-user"></i>
-            </div>
-            <div class="input-error-message">
+            <form [formGroup]="loginForm" (submit)="loginSubmit()">
+                <div class="cfield" >
+                    <input formControlName="email" type="email" placeholder="Email address">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="input-error-message">
                     <span *ngIf="loginForm.controls.email.invalid">
                         <span *ngIf="loginForm.controls.email.errors.email">Email is invalid.</span>
                     </span>
-            </div>
-            <div class="cfield">
-                <input formControlName="password" type="password" placeholder="Password">
-                <i class="fas fa-key"></i>
-            </div>
+                </div>
+                <div class="cfield">
+                    <input formControlName="password" type="password" placeholder="Password">
+                    <i class="fas fa-key"></i>
+                </div>
 
-            <button [ngClass]="{'login-button-invalid' : (loginForm.pristine || loginForm.invalid || loginForm.pending)}" type="submit" [disabled]="loginForm.pristine || loginForm.invalid || loginForm.pending">
-                <span *ngIf="!loginForm.pending">Login</span>
-                <span *ngIf="loginForm.pending">Pending</span>
-            </button>
-        </form>
+                <button [ngClass]="{'login-button-invalid' : (loginForm.pristine || loginForm.invalid || loginForm.pending)}" type="submit" [disabled]="loginForm.pristine || loginForm.invalid || loginForm.pending">
+                    <span *ngIf="!loginForm.pending">Login</span>
+                    <span *ngIf="loginForm.pending">Pending</span>
+                </button>
+            </form>
+        </div>
     </div>
-</div>
+</main>

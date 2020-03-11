@@ -1,10 +1,12 @@
-<div class="container text-center">
-    <h2 class="text-giant">Oops!</h2>
-    <h3 class="text-uppercase font-weight-bold pt-2">404 - page not found</h3>
-    <p>The page you are looking for might have been removed, had it's name changed or is temporarily unavailable.</p>
+<main>
+    <div class="container text-center">
+        <h2 class="text-giant">Oops!</h2>
+        <h3 class="text-uppercase font-weight-bold pt-2">404 - page not found</h3>
+        <p>The page you are looking for might have been removed, had it's name changed or is temporarily unavailable.</p>
 
-    <div>
-        <span *ngIf="!getLoggedInUser()" routerLink="/login" class="login-btn btn btn-primary text-uppercase pl-3 pr-3 mr-2">go to login</span>
-        <span *ngIf="getLoggedInUser()" routerLink="/" class="login-btn btn btn-primary text-uppercase pl-3 pr-3 mr-2">go to dashboard</span>
+        <div>
+            <span *ngIf="!getLoggedInUser()" routerLink="/login" class="login-btn btn btn-primary text-uppercase pl-3 pr-3 mr-2">go to login</span>
+            <span *ngIf="getLoggedInUser()" routerLink="/" class="login-btn btn btn-primary text-uppercase pl-3 pr-3 mr-2">go to dashboard</span>
+        </div>
     </div>
-</div>
+</main>
