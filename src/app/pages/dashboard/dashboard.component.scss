@@ -153,6 +153,33 @@ main {
               }
             }
           }
+
+          > .fa-database {
+            font-size: 60px;
+            color: rgba($color-1, 0.5);
+            position: relative;
+
+            > span {
+              top: 0;
+              left: 0;
+              width: 54px;
+              height: 25px;
+              display: block;
+              position: absolute;
+              color: #79bffa;
+              text-align: center;
+              overflow: hidden;
+              //border: red thin solid;
+              border-bottom-left-radius: 50% 7px;
+              border-bottom-right-radius: 50% 7px;
+
+              > i {
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
+          }
         }
       }
     }
