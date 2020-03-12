@@ -7,8 +7,8 @@
             </span>
         </nav>
 
-        <div class="shadow overflow-hidden bg-white pl-4 pr-4">
-            <ul *ngIf="auditList" class="list-unstyled">
+        <div class="shadow bg-white">
+            <ul *ngIf="auditList" class="list-unstyled pl-5 pr-5">
                 <li class="list-group-item bg-white row">
                     <ul class="row justify-content-center list-unstyled">
                         <li class="col-3 text-capitalize">Date</li>
@@ -17,6 +17,7 @@
                         <li class="col-2 text-capitalize">IP Address</li>
                     </ul>
                 </li>
+                <li class="list-group-item bg-white row">Empty</li>
                 <li *ngFor="let audit of auditList" class="list-group-item bg-white row">
                     <ul class="row justify-content-center list-unstyled">
                         <li class="col-3 text-capitalize">{{audit.date | date: 'MMM dd, yyyy - hh:mm a'}}</li>

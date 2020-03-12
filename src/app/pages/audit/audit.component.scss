@@ -43,20 +43,34 @@ main {
       }
     }
 
-    > ul {
+    > div {
       overflow: hidden;
-      margin: 0;
+      position: relative;
 
-      > li {
-        &:first-of-type {
-          color: rgba($color-2, 0.7);
-          font-weight: bold;
-          border-top: none;
-          border-bottom: rgba($color-2, 0.4) 3px solid;
-        }
+      > ul {
+        overflow: hidden;
+        margin: 0;
+        overflow-y: scroll;
+        max-height: calc(100vh - 300px);
 
-        &:last-of-type {
-          border-bottom: none;
+        > li {
+          border-left: none;
+          border-right: none;
+
+          &:first-of-type {
+            margin-top: -1px;
+            color: rgba($color-2, 0.7);
+            font-weight: bold;
+            border-top: none;
+            border-bottom: rgba($color-2, 0.4) 3px solid;
+            z-index: 9999;
+            position: absolute;
+            width: calc(100% - 4.475rem);
+          }
+
+          &:last-of-type {
+            border-bottom: none;
+          }
         }
       }
     }
