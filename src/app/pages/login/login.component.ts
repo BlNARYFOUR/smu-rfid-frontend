@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
         if(AuthService.token  != null) {
             this._appService.redirect("/dashboard");
         }
+
+        AppService.headerTitle = 'Login';
     }
 
     createForms() {

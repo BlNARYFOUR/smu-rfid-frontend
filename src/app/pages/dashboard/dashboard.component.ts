@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
       this._appService.checkTokenRedirect();
+      AppService.headerTitle = 'Dashboard';
   }
 
   isAdmin = () => {

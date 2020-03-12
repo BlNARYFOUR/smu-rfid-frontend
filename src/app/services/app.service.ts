@@ -8,6 +8,7 @@ import {AuthService} from "./auth.service";
 export class AppService {
 
     public static redirectUrl: string = "/dashboard";
+    public static headerTitle: string = "Dashboard";
 
     constructor(
         private _router: Router

@@ -21,6 +21,8 @@ export class AuditComponent implements OnInit {
         if(this._appService.checkTokenRedirect()) {
             this.getAudits();
         }
+
+        AppService.headerTitle = 'Audit';
     }
 
     getAudits = () => {

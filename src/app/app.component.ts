@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, AfterContentChecked, Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "./services/auth.service";
+import {AppService} from "./services/app.service";
 
 @Component({
   selector: 'app-root',
@@ -25,5 +26,9 @@ export class AppComponent implements AfterContentChecked {
 
     getLoggedInUser = () => {
         return AuthService.user;
+    };
+
+    headerTitle = () => {
+        return AppService.headerTitle;
     };
 }

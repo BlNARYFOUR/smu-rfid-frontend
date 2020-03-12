@@ -19,6 +19,8 @@ export class NotFoundComponent implements OnInit {
         if(AuthService.token  != null) {
             this.checkLoginStatus();
         }
+
+        AppService.headerTitle = 'Error 404';
     }
 
     getLoggedInUser = () => {

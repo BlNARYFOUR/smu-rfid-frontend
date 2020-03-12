@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://backend.smu-rfid.local/api/'
+    apiUrl: 'http://192.168.0.114:81/api/'
 };

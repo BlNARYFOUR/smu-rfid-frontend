@@ -21,6 +21,8 @@ export class RedirectComponent implements OnInit {
         } else {
             this._router.navigateByUrl('/login');
         }
+
+        AppService.headerTitle = 'Redirect';
     }
 
     checkLoginStatus = () => {
