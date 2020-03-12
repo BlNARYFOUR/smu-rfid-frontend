@@ -21,6 +21,10 @@ export class AuthService {
         return this._http.post(this.loginUrl, userInfo);
     }
 
+    public logout() {
+        return this._http.post(this.logoutUrl, {});
+    }
+
     public getLoggedIn(disableRedirect = false) {
         if(disableRedirect) {
             return this._http.get(this.getLoggedInUrl, {
