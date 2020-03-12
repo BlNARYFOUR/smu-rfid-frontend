@@ -20,6 +20,10 @@ export class DashboardComponent implements OnInit {
       this._appService.checkTokenRedirect();
   }
 
+  isAdmin = () => {
+      return AuthService.user ? AuthService.user.admin : false;
+  };
+
   logout = () => {
       document.querySelector('#logout-btn').classList.add('disabled');
 
