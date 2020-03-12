@@ -28,12 +28,7 @@ export class RedirectComponent implements OnInit {
             next: (data: any) => {
                 AuthService.user = data.data;
                 window.scrollTo(0,0);
-
-                if(this._router.url === "/") {
-                    this._router.navigateByUrl('/dashboard');
-                } else {
-                    this._router.navigateByUrl(AppService.redirectUrl);
-                }
+                this._router.navigateByUrl(AppService.redirectUrl);
             },
             error: (data: any) => {
                 console.log("UNAUTHENTICATED: REDIRECTING...");

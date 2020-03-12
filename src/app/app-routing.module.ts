@@ -4,11 +4,13 @@ import {LoginComponent} from "./pages/login/login.component";
 import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {RedirectComponent} from "./pages/redirect/redirect.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
+import {AuditComponent} from "./pages/audit/audit.component";
 
 const routes: Routes = [
     { path: '', component: RedirectComponent },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
+    { path: 'dashboard/audit', component: AuditComponent },
     { path: '**', component: NotFoundComponent  }
 ];
 

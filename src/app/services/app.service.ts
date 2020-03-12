@@ -7,7 +7,7 @@ import {AuthService} from "./auth.service";
 })
 export class AppService {
 
-    public static redirectUrl: string = "";
+    public static redirectUrl: string = "/dashboard";
 
     constructor(
         private _router: Router
@@ -21,6 +21,9 @@ export class AppService {
     public checkTokenRedirect() {
         if(AuthService.token == null) {
             this.redirect(this._router.url);
+            return false;
         }
+
+        return true;
     }
 }
