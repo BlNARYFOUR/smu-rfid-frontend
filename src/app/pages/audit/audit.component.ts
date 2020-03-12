@@ -12,6 +12,10 @@ export class AuditComponent implements OnInit {
     auditList: any;
     errorMessage: string;
 
+    pageSize: number = 25;
+    currentPage: number = 1;
+    totalItems: number = 0;
+
     constructor(
         private _appService: AppService,
         private _auditService: AuditService
@@ -19,17 +23,17 @@ export class AuditComponent implements OnInit {
 
     ngOnInit() {
         if(this._appService.checkTokenRedirect()) {
-            this.getAudits();
+            this.getAudits(this.currentPage, this.getPageSize());
         }
 
         AppService.headerTitle = 'Audit';
     }
 
-    getAudits = () => {
-        this._auditService.getAll().subscribe({
+    getAudits = (page, size) => {
+        this._auditService.getAll(page, size).subscribe({
             next: (data: any) => {
-                console.log(data.data);
                 this.auditList = data.data;
+                this.totalItems = data.meta.total;
             },
             error: (data: any) => {
                 if(data.error) {
@@ -37,5 +41,15 @@ export class AuditComponent implements OnInit {
                 }
             }
         });
+    };
+
+    getPageSize = () => {
+        return this.pageSize;
+    };
+
+    pageChanged = ($page) => {
+        this.currentPage = $page;
+        this.getAudits($page, this.getPageSize());
+        console.log("CHANGED: pageChanged");
     }
 }

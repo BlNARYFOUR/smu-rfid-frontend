@@ -1,4 +1,4 @@
-<main class="pt-5 pb-5">
+<main class="pt-5">
     <div  class="container">
         <nav class="mb-4 shadow bg-white">
             <span class="back" routerLink="/dashboard">
@@ -18,7 +18,7 @@
                     </ul>
                 </li>
                 <li class="list-group-item bg-white row">Empty</li>
-                <li *ngFor="let audit of auditList" class="list-group-item bg-white row">
+                <li *ngFor="let audit of auditList | paginate: { id: 'audits', itemsPerPage: getPageSize(), currentPage: currentPage, totalItems: totalItems }" class="list-group-item bg-white row">
                     <ul class="row justify-content-center list-unstyled">
                         <li class="col-3 text-capitalize">{{audit.date | date: 'MMM dd, yyyy - hh:mm a'}}</li>
                         <li class="col-3 text-capitalize">{{audit.action}}</li>
@@ -36,5 +36,20 @@
                 </li>
             </ul>
         </div>
+
+        <nav>
+            <pagination-controls  id="audits"
+                                  (pageChange)="pageChanged($event)"
+                                  maxSize="5"
+                                  directionLinks="true"
+                                  autoHide="true"
+                                  responsive="true"
+                                  previousLabel="Previous"
+                                  nextLabel="Next"
+                                  screenReaderPaginationLabel="Pagination"
+                                  screenReaderPageLabel="page"
+                                  screenReaderCurrentLabel="You're on page">
+            </pagination-controls>
+        </nav>
     </div>
 </main>

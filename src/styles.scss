@@ -58,3 +58,134 @@ html, body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(0, 53, 87);
 }
+
+.ngx-pagination {
+  text-align: center;
+  padding: 0;
+  color: transparent !important;
+
+  a {
+    background: #fff;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    padding: 9px 15px !important;
+    text-decoration: none;
+    border: 3px solid #edeff7;
+    font-size: 13px;
+    color: #000;
+    border-radius: 30px !important;
+    height: 42px;
+    line-height: 1.2;
+    outline: none;
+
+    &:hover {
+      background: #85b6fc30 !important;
+    }
+  }
+
+  .current {
+    background-color: #003557e0 !important;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    padding: 9px 15px !important;
+    text-decoration: none;
+    border: 3px solid #edeff7;
+    color: #000;
+    border-radius: 30px;
+    height: 42px;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .disabled {
+    padding: 9px 15px !important;
+    cursor: default;
+    background: #edeff7;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    text-decoration: none;
+    border: 3px solid #edeff7;
+    font-size: 13px;
+    color: transparent !important;
+    border-radius: 30px;
+    height: 42px;
+    line-height: 1.2;
+  }
+
+  .disabled:hover {
+    background: #edeff7 !important;
+  }
+}
+
+pagination-controls {
+  display: block;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+
+  .pagination-next {
+    position: absolute;
+    right: 0;
+    width: 42px;
+    overflow: hidden;
+    color: transparent !important;
+    * {
+      color: transparent !important;
+      background-color: transparent;
+    }
+
+    &:after, > a::after {
+      display: block !important;
+      position: absolute;
+      right: 14px;
+      bottom: 13px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      border-radius: 0.15rem;
+      width: 10px;
+      height: 10px;
+      border-bottom: 3px solid #35568c;
+      border-right: 3px solid #35568c;
+    }
+
+    > a::after {
+      right: 17px;
+      bottom: 16px;
+    }
+  }
+
+  .pagination-previous {
+    position: absolute;
+    left: 0;
+    width: 42px;
+    overflow: hidden;
+    color: transparent;
+    * {
+      color: transparent !important;
+      background-color: transparent;
+    }
+
+    &:before, > a::before {
+      display: block !important;
+      position: absolute;
+      left: 14px;
+      bottom: 13px;
+      -webkit-transform: rotate(135deg);
+      transform: rotate(135deg);
+      border-radius: 0.15rem;
+      width: 10px;
+      height: 10px;
+      border-bottom: 3px solid #35568c;
+      border-right: 3px solid #35568c;
+    }
+
+    > a::before {
+      left: 17px;
+      bottom: 16px;
+    }
+  }
+}

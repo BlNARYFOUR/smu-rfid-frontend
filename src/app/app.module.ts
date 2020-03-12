@@ -11,6 +11,7 @@ import { RedirectComponent } from './pages/redirect/redirect.component';
 import {TokenInterceptor} from "./services/token.interceptor";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AuditComponent } from './pages/audit/audit.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { AuditComponent } from './pages/audit/audit.component';
         FormsModule,
         ReactiveFormsModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        NgxPaginationModule
     ],
     providers: [
         {

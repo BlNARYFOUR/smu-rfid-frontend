@@ -15,7 +15,7 @@ main {
   }
 
   div {
-    nav {
+    nav:first-of-type {
       padding: 0.75rem 1.5rem;
 
       .back {
