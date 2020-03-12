@@ -7,13 +7,43 @@ $color-6: #F9F5FF;
 
 main {
   background-color: $color-6;
-  height: calc(100vh - 90px);
+  min-height: calc(100% - 90px);
 
   ul {
+    margin: 0;
+
     > li {
       padding: 1.5rem 2.5rem;
+      transition: all .2s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.125);
+      }
+
+      &.disabled {
+        opacity: 0.4;
+        cursor: default;
+
+        &:hover {
+          transform: none;
+        }
+
+        section:after {
+          content: " ";
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 100, 148, 0.3);
+          top: 0;
+          left: 0;
+          position: absolute;
+        }
+      }
 
       > section {
+        position: relative;
+        overflow: hidden;
         text-align: center;
         background-color: $color-4;
         box-shadow: 0 2px 15px 2px rgba(black, 0.15);
