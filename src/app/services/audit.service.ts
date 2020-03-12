@@ -11,6 +11,6 @@ export class AuditService {
     constructor(private _http: HttpClient) { }
 
     public getAll() {
-        return this._http.get(this.getUrl);
+        return this._http.get(this.getUrl + '?size=25');
     }
 }

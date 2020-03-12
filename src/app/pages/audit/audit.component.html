@@ -1,1 +1,36 @@
-<p>audit works!</p>
+<main class="pt-5 pb-5">
+    <div  class="container">
+        <nav class="mb-4 shadow bg-white">
+            <span class="back" routerLink="/dashboard">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
+            </span>
+        </nav>
+
+        <div class="shadow overflow-hidden bg-white pl-4 pr-4">
+            <ul *ngIf="auditList" class="list-unstyled">
+                <li class="list-group-item bg-white row">
+                    <ul class="row justify-content-center list-unstyled">
+                        <li class="col-4">Date</li>
+                        <li class="col-4">Action</li>
+                        <li class="col-4">User</li>
+                    </ul>
+                </li>
+                <li *ngFor="let audit of auditList" class="list-group-item bg-white row">
+                    <ul class="row justify-content-center list-unstyled">
+                        <li class="col-4">{{audit.date | date: 'MMMM dd, yyyy - hh:mm a'}}</li>
+                        <li class="col-4">{{audit.action}}</li>
+                        <li class="col-4">{{audit.user ? audit.user.first_name + ' ' + audit.user.last_name : '/'}}</li>
+                    </ul>
+                </li>
+                <li *ngIf="0 === auditList.length" class="list-group-item bg-white row">
+                    <ul class="row justify-content-center list-unstyled">
+                        <li class="col-4">No audits to be displayed</li>
+                        <li class="col-4">/</li>
+                        <li class="col-4">/</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>

@@ -42,3 +42,19 @@ html, body {
     border-color: $color-3;
   }
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba($color-2, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(0, 53, 87);
+}
