@@ -180,6 +180,41 @@ main {
               }
             }
           }
+
+          > .fa-sign-out-alt {
+            font-size: 60px;
+            color: rgba($color-1, 0.5);
+            position: relative;
+
+            > span {
+              bottom: 17px;
+              left: 10px;
+              width: 50px;
+              height: 24px;
+              position: absolute;
+              color: #79bffa;
+              text-align: center;
+              overflow: hidden;
+
+              > i {
+                position: absolute;
+                left: -10px;
+                top: -19px;
+              }
+
+              &:last-of-type {
+                height: 100%;
+                width: 30px;
+                left: 30px;
+                bottom: 0;
+
+                > i {
+                  left: -30px;
+                  top: 0;
+                }
+              }
+            }
+          }
         }
       }
     }
