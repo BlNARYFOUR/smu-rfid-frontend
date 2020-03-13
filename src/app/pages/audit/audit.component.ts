@@ -63,5 +63,9 @@ export class AuditComponent implements OnInit {
         this.currentPage = $page;
         this.getAudits($page, this.getPageSize());
         console.log("CHANGED: pageChanged");
+    };
+
+    printPage = () => {
+        window.print();
     }
 }

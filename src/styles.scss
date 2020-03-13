@@ -214,3 +214,36 @@ pagination-controls {
     }
   }
 }
+
+@media print
+{
+  .no-print, .no-print *
+  {
+    display: none !important;
+  }
+
+  main, main * {
+    background-color: white !important;
+
+    overflow-y: hidden;
+
+    .no-shadow-print {
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    .list-data {
+      max-height: none !important;
+      overflow-y: hidden !important;
+    }
+
+    .ngx-pagination li {
+      display: none !important;
+
+      &.small-screen {
+        display: block !important;
+        color: rgba($color-2, 0.4);
+      }
+    }
+  }
+}

@@ -9,13 +9,13 @@ main {
   background-color: $color-6;
   min-height: calc(100% - 90px);
 
-  .shadow {
-    box-shadow: 0 2px 15px 2px rgba(black, 0.15) !important;
+  .shadow-b {
+    box-shadow: 0 2px 15px 2px rgba(black, 0.15);
     border-radius: 10px !important;
   }
 
-  div {
-    nav:first-of-type {
+  > div {
+    > nav:first-of-type {
       padding: 0.75rem 1.5rem;
 
       .back {
@@ -43,33 +43,57 @@ main {
       }
     }
 
-    > div {
-      overflow: hidden;
+    .list-containter {
       position: relative;
 
-      > ul {
+      .print-icon {
+        position: absolute;
+        background: $color-3;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 25px;
+        color: white;
+        padding: 2px;
+        top: -4px;
+        left: -17px;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.125);
+        }
+      }
+
+      > div {
         overflow: hidden;
-        margin: 0;
-        overflow-y: scroll;
-        max-height: calc(100vh - 300px);
+        position: relative;
 
-        > li {
-          border-left: none;
-          border-right: none;
+        > .list-data {
+          overflow: hidden;
+          margin: 0;
+          overflow-y: scroll;
+          max-height: calc(100vh - 300px);
 
-          &:first-of-type {
-            margin-top: -1px;
-            color: rgba($color-2, 0.7);
-            font-weight: bold;
-            border-top: none;
-            border-bottom: rgba($color-2, 0.4) 3px solid;
-            z-index: 9999;
-            position: absolute;
-            width: calc(100% - 4.475rem);
-          }
+          > li {
+            border-left: none;
+            border-right: none;
 
-          &:last-of-type {
-            border-bottom: none;
+            &:first-of-type {
+              margin-top: -1px;
+              color: rgba($color-2, 0.7);
+              font-weight: bold;
+              border-top: none;
+              border-bottom: rgba($color-2, 0.4) 3px solid;
+              z-index: 9999;
+              position: absolute;
+              width: calc(100% - 4.475rem);
+            }
+
+            &:last-of-type {
+              border-bottom: none;
+            }
           }
         }
       }
