@@ -235,6 +235,10 @@ pagination-controls {
     .list-data {
       max-height: none !important;
       overflow-y: hidden !important;
+
+      li:first-of-type {
+        width: calc(100% - 4.12rem) !important;
+      }
     }
 
     .ngx-pagination li {
