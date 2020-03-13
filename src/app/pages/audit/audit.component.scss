@@ -21,7 +21,7 @@ main {
       .back {
         cursor: pointer;
         vertical-align: middle;
-        height: 30px;
+        height: 31px;
         display: inline-block;
         outline: none;
 
@@ -40,6 +40,14 @@ main {
             color: $color-3;
           }
         }
+      }
+
+      .search-input {
+        border: none;
+        border-bottom: solid rgba($color-2, 0.2) 2px;
+        padding-bottom: 5px;
+        outline: none;
+        width: 315px;
       }
     }
 

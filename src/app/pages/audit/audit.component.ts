@@ -34,7 +34,7 @@ export class AuditComponent implements OnInit {
         if(!this.pageUpdateBusy) {
             this.pageUpdateBusy = true;
 
-            this._auditService.getAll(page, size).subscribe({
+            this._auditService.getAll(page, size, document.querySelector('.search-input')['value']).subscribe({
                 next: (data: any) => {
                     if(document.querySelector('#scrollList')) {
                         document.querySelector('#scrollList').scrollTo(0, 0);
@@ -67,5 +67,10 @@ export class AuditComponent implements OnInit {
 
     printPage = () => {
         window.print();
-    }
+    };
+
+    onSearchChange = () => {
+        this.currentPage = 1;
+        this.getAudits(this.currentPage, this.pageSize);
+    };
 }

@@ -10,7 +10,7 @@ export class AuditService {
 
     constructor(private _http: HttpClient) { }
 
-    public getAll(page: number, size: number) {
-        return this._http.get(this.getUrl + '?size=' + size + '&page=' + page);
+    public getAll(page: number, size: number, search: string = null) {
+        return this._http.get(this.getUrl + '?size=' + size + '&page=' + page + ( search == null ? '' : '&search=' + search));
     }
 }
