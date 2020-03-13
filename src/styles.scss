@@ -56,7 +56,7 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(0, 53, 87);
+  background-color: $color-2;
 }
 
 .ngx-pagination {
@@ -65,58 +65,71 @@ html, body {
   color: transparent !important;
 
   a {
-    background: #fff;
+    background: $color-4;
     -ms-box-shadow: none;
     -o-box-shadow: none;
     box-shadow: none;
     padding: 9px 15px !important;
     text-decoration: none;
-    border: 3px solid #edeff7;
+    border: 3px solid rgba($color-2, 0.125);
     font-size: 13px;
     color: #000;
-    border-radius: 30px !important;
+    border-radius: 18px !important;
     height: 42px;
     line-height: 1.2;
     outline: none;
 
     &:hover {
       background: #85b6fc30 !important;
+      color: #000;
     }
   }
 
+  > li {
+    margin-right: 0.1rem !important;
+    margin-left: 0.1rem !important;
+  }
+
   .current {
-    background-color: #003557e0 !important;
-    -ms-box-shadow: none;
-    -o-box-shadow: none;
-    box-shadow: none;
-    padding: 9px 15px !important;
-    text-decoration: none;
-    border: 3px solid #edeff7;
-    color: #000;
-    border-radius: 30px;
-    height: 42px;
-    font-size: 13px;
-    line-height: 1.2;
+    background: transparent !important;
+    padding: 0 !important;
+    > span {
+      display: block;
+      background-color: $color-2 !important;
+      -ms-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none;
+      padding: 9px 15px !important;
+      text-decoration: none;
+      border: 3px solid rgba($color-2, 0.125);
+      //color: #000;
+      border-radius: 18px;
+      height: 42px;
+      font-size: 13px;
+      line-height: 1.2;
+    }
   }
 
   .disabled {
     padding: 9px 15px !important;
     cursor: default;
-    background: #edeff7;
     -ms-box-shadow: none;
     -o-box-shadow: none;
     box-shadow: none;
     text-decoration: none;
-    border: 3px solid #edeff7;
+    border: 3px solid rgba($color-5, 0.02);
     font-size: 13px;
     color: transparent !important;
-    border-radius: 30px;
+    border-radius: 18px;
     height: 42px;
     line-height: 1.2;
+    opacity: 0.4;
+    background: rgba($color-5, 0.3) !important;
   }
 
   .disabled:hover {
-    background: #edeff7 !important;
+    opacity: 0.4;
+    background: rgba($color-5, 0.3) !important;
   }
 }
 
@@ -133,8 +146,14 @@ pagination-controls {
     width: 42px;
     overflow: hidden;
     color: transparent !important;
+    margin-right: 0 !important;
+
     * {
       color: transparent !important;
+      background-color: white;
+    }
+
+    > span {
       background-color: transparent;
     }
 
@@ -148,8 +167,8 @@ pagination-controls {
       border-radius: 0.15rem;
       width: 10px;
       height: 10px;
-      border-bottom: 3px solid #35568c;
-      border-right: 3px solid #35568c;
+      border-bottom: 3px solid $color-2;
+      border-right: 3px solid $color-2;
     }
 
     > a::after {
@@ -164,8 +183,14 @@ pagination-controls {
     width: 42px;
     overflow: hidden;
     color: transparent;
+    margin-left: 0 !important;
+
     * {
       color: transparent !important;
+      background-color: white;
+    }
+
+    > span {
       background-color: transparent;
     }
 
@@ -179,8 +204,8 @@ pagination-controls {
       border-radius: 0.15rem;
       width: 10px;
       height: 10px;
-      border-bottom: 3px solid #35568c;
-      border-right: 3px solid #35568c;
+      border-bottom: 3px solid $color-2;
+      border-right: 3px solid $color-2;
     }
 
     > a::before {

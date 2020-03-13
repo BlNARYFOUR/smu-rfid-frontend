@@ -15,6 +15,7 @@ export class AuditComponent implements OnInit {
     pageSize: number = 25;
     currentPage: number = 1;
     totalItems: number = 0;
+    pageUpdateBusy: boolean = false;
 
     constructor(
         private _appService: AppService,
@@ -30,17 +31,28 @@ export class AuditComponent implements OnInit {
     }
 
     getAudits = (page, size) => {
-        this._auditService.getAll(page, size).subscribe({
-            next: (data: any) => {
-                this.auditList = data.data;
-                this.totalItems = data.meta.total;
-            },
-            error: (data: any) => {
-                if(data.error) {
-                    this.errorMessage = data.error.error ? data.error.error : 'Couldn\'t get audit data. Try again later.';
+        if(!this.pageUpdateBusy) {
+            this.pageUpdateBusy = true;
+
+            this._auditService.getAll(page, size).subscribe({
+                next: (data: any) => {
+                    if(document.querySelector('#scrollList')) {
+                        document.querySelector('#scrollList').scrollTo(0, 0);
+                    }
+                    this.auditList = data.data;
+                    this.totalItems = data.meta.total;
+                    this.pageUpdateBusy = false;
+                },
+                error: (data: any) => {
+                    if(data.error) {
+                        this.errorMessage = data.error.error ? data.error.error : 'Couldn\'t get audit data. Try again later.';
+                    }
+                    this.pageUpdateBusy = false;
                 }
-            }
-        });
+            });
+        } else {
+            console.log("OOPS! You going too faaasssttt");
+        }
     };
 
     getPageSize = () => {

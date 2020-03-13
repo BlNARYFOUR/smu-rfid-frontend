@@ -10,32 +10,40 @@ import {Router} from "@angular/router";
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(
-      private _appService: AppService,
-      private _authService: AuthService,
-      private _router: Router
-  ) { }
+    logoutClicked: boolean = false;
 
-  ngOnInit() {
-      this._appService.checkTokenRedirect();
-      AppService.headerTitle = 'Dashboard';
-  }
+    constructor(
+        private _appService: AppService,
+        private _authService: AuthService,
+        private _router: Router
+    ) { }
 
-  isAdmin = () => {
-      return AuthService.user ? AuthService.user.admin : false;
-  };
+    ngOnInit() {
+        this._appService.checkTokenRedirect();
+        AppService.headerTitle = 'Dashboard';
+    }
+
+    isAdmin = () => {
+        return AuthService.user ? AuthService.user.admin : false;
+    };
 
   logout = () => {
-      document.querySelector('#logout-btn').classList.add('disabled');
+      if(!this.logoutClicked) {
+          this.logoutClicked = true;
 
-      this._authService.logout().subscribe({
-          next: (data: any) => {
-              localStorage.removeItem('ACCESS_TOKEN');
-              this._router.navigateByUrl('/login');
-          },
-          error: (data: any) => {
-              console.log("LOGOUT:", data.error.error);
-          }
-      });
+          document.querySelector('#logout-btn').classList.add('disabled');
+
+          this._authService.logout().subscribe({
+              next: (data: any) => {
+                  localStorage.removeItem('ACCESS_TOKEN');
+                  this._router.navigateByUrl('/login');
+              },
+              error: (data: any) => {
+                  console.log("LOGOUT:", data.error.error);
+              }
+          });
+      } else {
+          console.log("OOPS! You going too faaasssttt");
+      }
   };
 }
