@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuditService} from "../../services/audit.service";
 import {AppService} from "../../services/app.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-audit',
@@ -19,7 +20,8 @@ export class AuditComponent implements OnInit {
 
     constructor(
         private _appService: AppService,
-        private _auditService: AuditService
+        private _auditService: AuditService,
+        private _titleService: Title
     ) { }
 
     ngOnInit() {
@@ -66,7 +68,10 @@ export class AuditComponent implements OnInit {
     };
 
     printPage = () => {
+        let buf = this._titleService.getTitle();
+        this._titleService.setTitle('SMU_RFID_Audit_' + new Date().getTime());
         window.print();
+        this._titleService.setTitle(buf);
     };
 
     onSearchChange = () => {
