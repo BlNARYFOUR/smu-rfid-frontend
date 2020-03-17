@@ -12,6 +12,7 @@ import {TokenInterceptor} from "./services/token.interceptor";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AuditComponent } from './pages/audit/audit.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import { UsersComponent } from './pages/users/users.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import {NgxPaginationModule} from "ngx-pagination";
         DashboardComponent,
         RedirectComponent,
         NotFoundComponent,
-        AuditComponent
+        AuditComponent,
+        UsersComponent
     ],
     imports: [
         BrowserModule,

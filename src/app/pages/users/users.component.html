@@ -1,0 +1,62 @@
+<main class="pt-5">
+    <div  class="container">
+        <nav class="mb-4 shadow-b bg-white no-print d-flex justify-content-between">
+            <span class="back" routerLink="/dashboard">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
+            </span>
+            <div class="nav-right">
+                <input class="search-input" type="text" (change)="onSearchChange()"  title="Search names, user type and/or email address" placeholder="Search names, user types and/or emails" />
+            </div>
+        </nav>
+
+        <div class="list-containter pt-2" *ngIf="userList">
+            <div class="shadow-b no-shadow-print bg-white">
+                <ul id="scrollList" class="list-data list-unstyled pl-5 pr-5">
+                    <li class="list-group-item bg-white row">
+                        <ul class="row justify-content-center list-unstyled">
+                            <li class="col-2 text-capitalize text-nowrap">Registered on</li>
+                            <li class="col-4 text-capitalize text-nowrap">Email Address</li>
+                            <li class="col-3 text-capitalize text-nowrap">User Type</li>
+                            <li class="col-3 text-capitalize text-nowrap">Full Name</li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item bg-white row">Empty</li>
+                    <li *ngFor="let user of userList | paginate: { id: 'users', itemsPerPage: getPageSize(), currentPage: currentPage, totalItems: totalItems }" class="list-group-item bg-white row">
+                        <ul class="row justify-content-center list-unstyled">
+                            <li class="col-2">{{user.created_at | date: 'MMM dd, yyyy'}}</li>
+                            <li class="col-4">{{user.email}}</li>
+                            <li class="col-3 text-capitalize">{{user.admin ? 'Administrator' : 'Officer in Charge'}}</li>
+                            <li class="col-3 text-capitalize">{{user.first_name + ' ' + (user.middle_name ? user.middle_name[0] + '. ' : '') + user.last_name}}</li>
+                        </ul>
+                    </li>
+                    <li *ngIf="0 === userList.length" class="list-group-item bg-white row">
+                        <ul class="row justify-content-center list-unstyled">
+                            <li class="col-2">No users to be displayed</li>
+                            <li class="col-4 text-capitalize">/</li>
+                            <li class="col-3 text-capitalize">/</li>
+                            <li class="col-3">/</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <span class="print-icon no-print" (click)="printPage()"><i class="fas fa-print"></i></span>
+
+            <nav>
+                <pagination-controls  id="users"
+                                      (pageChange)="pageChanged($event)"
+                                      maxSize="10"
+                                      directionLinks="true"
+                                      autoHide="true"
+                                      responsive="true"
+                                      previousLabel="Previous"
+                                      nextLabel="Next"
+                                      screenReaderPaginationLabel="Pagination"
+                                      screenReaderPageLabel="page"
+                                      screenReaderCurrentLabel="You're on page">
+                </pagination-controls>
+            </nav>
+        </div>
+    </div>
+</main>
