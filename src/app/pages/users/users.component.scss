@@ -54,7 +54,7 @@ main {
     .list-containter {
       position: relative;
 
-      .print-icon {
+      .print-icon, .edit-icon, .delete-icon {
         position: absolute;
         background: $color-3;
         width: 45px;
@@ -75,6 +75,18 @@ main {
         }
       }
 
+      .edit-icon.active {
+        z-index: 999999;
+      }
+
+      .delete-icon {
+        background: #f4516c;
+
+        &.active {
+          top: 47px;
+        }
+      }
+
       > div {
         overflow: hidden;
         position: relative;
@@ -90,6 +102,7 @@ main {
             border-right: none;
             cursor: pointer;
             transition: all .2s ease-in-out;
+            position: relative;
 
             &:hover, &.clicked {
               box-shadow: 0 2px 15px 2px rgba(black, 0.15);

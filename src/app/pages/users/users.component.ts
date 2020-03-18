@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
     userList: any;
     errorMessage: string;
 
+    buttonsActive: boolean = false;
     pageSize: number = 25;
     currentPage: number = 1;
     totalItems: number = 0;
@@ -84,12 +85,16 @@ export class UsersComponent implements OnInit {
         this.userList.forEach((user) => {
             user.clicked = false;
         });
+        this.buttonsActive = false;
     };
 
     onUserListItemClick = (user) => {
+        event.stopPropagation();
         this.userList.forEach((user) => {
             user.clicked = false;
         });
+
         user.clicked = true;
+        this.buttonsActive = true;
     };
 }

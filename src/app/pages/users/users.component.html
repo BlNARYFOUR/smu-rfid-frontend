@@ -1,4 +1,4 @@
-<main class="pt-5">
+<main class="pt-5" (click)="onBodyClick()">
     <div  class="container">
         <nav class="mb-4 shadow-b bg-white no-print d-flex justify-content-between">
             <span class="back" routerLink="/dashboard">
@@ -41,6 +41,8 @@
                 </ul>
             </div>
 
+            <span [ngClass]="{'active' : buttonsActive}" class="edit-icon"><i class="fas fa-pencil-alt"></i></span>
+            <span [ngClass]="{'active' : buttonsActive}" class="delete-icon"><i class="fas fa-trash-alt"></i></span>
             <span class="print-icon no-print" (click)="printPage()"><i class="fas fa-print"></i></span>
 
             <nav>
