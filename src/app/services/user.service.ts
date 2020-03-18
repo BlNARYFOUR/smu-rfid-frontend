@@ -7,10 +7,15 @@ import {HttpClient} from "@angular/common/http";
 })
 export class UserService {
     private getUrl: string = environment.apiUrl + 'users';
+    private deleteUrl: string = environment.apiUrl + 'users/';
 
     constructor(private _http: HttpClient) { }
 
     public getAll(page: number, size: number, search: string = null) {
         return this._http.get(this.getUrl + '?size=' + size + '&page=' + page + ( search == null ? '' : '&search=' + search));
+    }
+
+    public drop(id: number) {
+        return this._http.delete(this.deleteUrl + id);
     }
 }

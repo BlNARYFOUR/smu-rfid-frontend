@@ -31,7 +31,6 @@ export class TokenInterceptor implements HttpInterceptor {
             }),
             catchError((error: any) => {
                 if (error instanceof HttpErrorResponse) {
-                    console.log(error);
                     if (error.status === 401 || error.status === 0) {
                         localStorage.removeItem('ACCESS_TOKEN');
                         AuthService.token = null;

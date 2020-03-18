@@ -3,6 +3,7 @@ import {AppService} from "../../services/app.service";
 import {AuditService} from "../../services/audit.service";
 import {Title} from "@angular/platform-browser";
 import {UserService} from "../../services/user.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-users',
@@ -13,8 +14,14 @@ export class UsersComponent implements OnInit {
     userList: any;
     errorMessage: string;
 
-    buttonsActive: boolean = false;
+    deleteActive: boolean = false;
+    editActive: boolean = false;
     activeUser: any;
+
+    deleteModalActive: boolean = false;
+    deleteError: string;
+    deleteMessage: string;
+    deletePending: boolean = false;
 
     pageSize: number = 25;
     currentPage: number = 1;
@@ -87,7 +94,9 @@ export class UsersComponent implements OnInit {
         this.userList.forEach((user) => {
             user.clicked = false;
         });
-        this.buttonsActive = false;
+        this.deleteModalActive = false;
+        this.deleteActive = false;
+        this.editActive = false;
         this.activeUser = null;
     };
 
@@ -99,10 +108,50 @@ export class UsersComponent implements OnInit {
 
         user.clicked = true;
         this.activeUser = user;
-        this.buttonsActive = true;
+        this.editActive = true;
+
+        this.deleteActive = this.activeUser.id !== AuthService.user.id;
     };
 
     onDeleteButtonClick = () => {
         event.stopPropagation();
-    }
+        this.deleteModalActive = true;
+    };
+
+    onDeleteAccept = () => {
+        event.stopPropagation();
+        this.deletePending = true;
+        this.deleteUser(this.activeUser);
+    };
+
+    onDeleteCancel = () => {
+        event.stopPropagation();
+        this.deleteModalActive = false;
+        this.onBodyClick();
+    };
+
+    deleteUser = (user) => {
+        if(!this.pageUpdateBusy) {
+            this.pageUpdateBusy = true;
+
+            this._userService.drop(user.id).subscribe({
+                next: (data: any) => {
+                    this.deletePending = false;
+                    this.pageUpdateBusy = false;
+                    this.getUsers(this.currentPage, this.pageSize);
+                    this.deleteModalActive = false;
+                    this.onBodyClick();
+                },
+                error: (data: any) => {
+                    if(data.error) {
+                        this.deleteError = data.error.error ? data.error.error : 'Couldn\'t delete the user. Try again later.';
+                    }
+                    this.deletePending = false;
+                    this.pageUpdateBusy = false;
+                }
+            });
+        } else {
+            console.log("OOPS! You going too faaasssttt");
+        }
+    };
 }

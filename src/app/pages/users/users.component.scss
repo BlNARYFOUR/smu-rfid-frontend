@@ -130,4 +130,71 @@ main {
       }
     }
   }
+
+  .delete-confirm-modal {
+    position: absolute;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    line-height: 100vh;
+
+    > div {
+      border-radius: 30px;
+      box-shadow: 0 0 45px 0 black;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      line-height: normal;
+      width: 460px;
+      position: relative;
+      vertical-align: middle;
+      text-align: center;
+      padding: 50px;
+
+      h3 {
+        width: 100%;
+        color: $color-2;
+        font-weight: 700;
+        margin: 0 0 30px;
+        line-height: 10px;
+      }
+
+      .show-error {
+        color: #f4516c !important;
+      }
+
+      .show-success {
+        color: green !important;
+      }
+
+      button {
+        width: 45%;
+        height: 60px;
+        font-size: 17px;
+        font-weight: 700;
+        margin-top: 25px;
+        border-radius: 8px;
+        color: white;
+        border: 2px solid $color-2;
+        background: $color-2;
+        outline: none;
+        margin-left: 5px;
+        margin-right: 5px;
+
+        &.delete-button {
+          background: #f4516c;
+          border: 2px solid #f4516c;
+          &.button-invalid {
+            background: rgba(#f4516c, 0.6);
+            border: 2px solid rgba(#f4516c, 0.1);
+          }
+        }
+
+        &.button-invalid {
+          background: #caccda;
+          border: 2px solid #caccda;
+        }
+      }
+    }
+  }
 }
