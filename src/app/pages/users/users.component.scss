@@ -54,7 +54,7 @@ main {
     .list-containter {
       position: relative;
 
-      .print-icon, .edit-icon, .delete-icon {
+      .print-icon, .add-icon, .edit-icon, .delete-icon {
         position: absolute;
         background: $color-3;
         width: 45px;
@@ -77,6 +77,11 @@ main {
 
       .edit-icon.active {
         z-index: 999999;
+      }
+
+      .add-icon {
+        background-color: $color-1;
+        top: 47px;
       }
 
       .delete-icon {

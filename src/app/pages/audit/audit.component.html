@@ -25,8 +25,8 @@
                     <li *ngFor="let audit of auditList | paginate: { id: 'audits', itemsPerPage: getPageSize(), currentPage: currentPage, totalItems: totalItems }" class="list-group-item bg-white row">
                         <ul class="row justify-content-center list-unstyled">
                             <li class="col-3">{{audit.date | date: 'MMM dd, yyyy - hh:mm a'}}</li>
-                            <li class="col-3 text-capitalize">{{audit.action}}</li>
-                            <li class="col-4 text-capitalize">{{audit.user ? audit.user.first_name + ' ' + (audit.user.middle_name ? audit.user.middle_name[0] + '. ' : '') + audit.user.last_name : '/'}}</li>
+                            <li class="col-3 text-capitalize" [title]="audit.action.split('&')[1] !== undefined ? audit.action.split('&')[1] : audit.action">{{audit.action.split('&')[0]}}</li>
+                            <li class="col-4 text-capitalize">{{audit.user && audit.user.first_name ? audit.user.first_name + ' ' + (audit.user.middle_name ? audit.user.middle_name[0] + '. ' : '') + audit.user.last_name : '/'}}</li>
                             <li class="col-2">{{audit.ip_address}}</li>
                         </ul>
                     </li>
