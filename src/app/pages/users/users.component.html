@@ -42,7 +42,7 @@
             </div>
 
             <span [ngClass]="{'active' : buttonsActive}" class="edit-icon"><i class="fas fa-pencil-alt"></i></span>
-            <span [ngClass]="{'active' : buttonsActive}" class="delete-icon"><i class="fas fa-trash-alt"></i></span>
+            <span (click)="onDeleteButtonClick()" [ngClass]="{'active' : buttonsActive}" class="delete-icon"><i class="fas fa-trash-alt"></i></span>
             <span class="print-icon no-print" (click)="printPage()"><i class="fas fa-print"></i></span>
 
             <nav>

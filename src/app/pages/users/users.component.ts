@@ -14,6 +14,8 @@ export class UsersComponent implements OnInit {
     errorMessage: string;
 
     buttonsActive: boolean = false;
+    activeUser: any;
+
     pageSize: number = 25;
     currentPage: number = 1;
     totalItems: number = 0;
@@ -86,6 +88,7 @@ export class UsersComponent implements OnInit {
             user.clicked = false;
         });
         this.buttonsActive = false;
+        this.activeUser = null;
     };
 
     onUserListItemClick = (user) => {
@@ -95,6 +98,11 @@ export class UsersComponent implements OnInit {
         });
 
         user.clicked = true;
+        this.activeUser = user;
         this.buttonsActive = true;
     };
+
+    onDeleteButtonClick = () => {
+        event.stopPropagation();
+    }
 }
