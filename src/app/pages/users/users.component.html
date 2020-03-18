@@ -22,7 +22,7 @@
                         </ul>
                     </li>
                     <li class="list-group-item bg-white row">Empty</li>
-                    <li *ngFor="let user of userList | paginate: { id: 'users', itemsPerPage: getPageSize(), currentPage: currentPage, totalItems: totalItems }" class="list-group-item bg-white row">
+                    <li [ngClass]="{'clicked' : user.clicked}" (click)="onUserListItemClick(user)" *ngFor="let user of userList | paginate: { id: 'users', itemsPerPage: getPageSize(), currentPage: currentPage, totalItems: totalItems }" class="list-group-item bg-white row">
                         <ul class="row justify-content-center list-unstyled">
                             <li class="col-2">{{user.created_at | date: 'MMM dd, yyyy'}}</li>
                             <li class="col-4">{{user.email}}</li>

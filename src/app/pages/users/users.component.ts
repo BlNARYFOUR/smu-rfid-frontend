@@ -79,4 +79,17 @@ export class UsersComponent implements OnInit {
         this.currentPage = 1;
         this.getUsers(this.currentPage, this.pageSize);
     };
+
+    onBodyClick = () => {
+        this.userList.forEach((user) => {
+            user.clicked = false;
+        });
+    };
+
+    onUserListItemClick = (user) => {
+        this.userList.forEach((user) => {
+            user.clicked = false;
+        });
+        user.clicked = true;
+    };
 }
