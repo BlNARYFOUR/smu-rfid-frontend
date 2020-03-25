@@ -38,6 +38,9 @@ export class TokenInterceptor implements HttpInterceptor {
                         if(!request.headers.get('Disable-Redirect')) {
                             this._router.navigateByUrl('/login');
                         }
+                    } else {
+                        AuthService.token = error.headers.get("Authorization").split(' ')[1];
+                        localStorage.setItem('ACCESS_TOKEN', AuthService.token);
                     }
                 }
 

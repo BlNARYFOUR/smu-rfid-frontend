@@ -34,4 +34,8 @@ export class AuthService {
             return this._http.get(this.getLoggedInUrl);
         }
     }
+
+    public register(userInfo: any) {
+        return this._http.post(this.registerUrl, userInfo);
+    }
 }

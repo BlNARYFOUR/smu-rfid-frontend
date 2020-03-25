@@ -33,6 +33,31 @@ html, body {
   border-radius: 18px;
 }
 
+input, input:focus {
+  outline: none !important;
+}
+
+.input-error-message {
+  height: 20px;
+  margin-bottom: 5px;
+  width: 100%;
+  color: #f4516c;
+  position: relative;
+  text-align: right;
+}
+
+.input-error {
+  border-color: #f4516c !important;
+}
+
+.show-error {
+  color: #f4516c !important;
+}
+
+.show-success {
+  color: green !important;
+}
+
 .btn-primary {
   background-color: $color-2;
   border-color: $color-2;

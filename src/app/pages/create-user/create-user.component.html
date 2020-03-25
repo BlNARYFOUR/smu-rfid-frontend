@@ -1,1 +1,75 @@
-<p>create-user works!</p>
+<main class="pt-5">
+    <div  class="container">
+        <nav class="mb-4 shadow-b bg-white no-print d-flex justify-content-between">
+            <span class="back" routerLink="../">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
+            </span>
+            <div class="nav-right">
+                <!-- FUTURE FEATURES -->
+            </div>
+        </nav>
+
+        <div class="list-containter pt-2">
+            <div class="shadow-b no-shadow-print bg-white">
+                <div id="scrollList" class="list-data list-unstyled pl-5 pr-5">
+                    <form id="createUserForm" [formGroup]="newUserForm" (submit)="submitNewUser()" class="mt-4 mb-4">
+                        <div class="row">
+                            <div class="form-group col-4">
+                                <label for="first_name">First Name</label>
+                                <input formControlName="first_name" [ngClass]="{'input-error' : newUserForm.controls.first_name.errors}"  class="form-control" id="first_name" type="text" placeholder="John" />
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="middle_name">Middle Name</label>
+                                <input formControlName="middle_name" [ngClass]="{'input-error' : newUserForm.controls.middle_name.errors}" class="form-control" id="middle_name" type="text" placeholder="Jonathan" />
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="last_name">Last Name</label>
+                                <input formControlName="last_name" [ngClass]="{'input-error' : newUserForm.controls.last_name.errors}" class="form-control" id="last_name" type="text" placeholder="Doe" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label for="email">Email</label>
+                                <input formControlName="email" [ngClass]="{'input-error' : newUserForm.controls.email.errors}" class="form-control" id="email" type="text" placeholder="example@example.com" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="password">Password</label>
+                                <input formControlName="password" [ngClass]="{'input-error' : newUserForm.controls.password.errors}" class="form-control" id="password" type="password" placeholder="p@SsW04D" />
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="confirm_pass">Confirm Password</label>
+                                <input formControlName="confirmPassword" [ngClass]="{'input-error' : newUserForm.errors || newUserForm.controls.confirmPassword.errors}" class="form-control" id="confirm_pass" type="password" placeholder="p@SsW04D" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <div class="form-check">
+                                    <input formControlName="admin" id="admin" class="form-check-input" type="checkbox" />
+                                    <label for="admin" class="form-check-label">Give account Administrator rights</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <button [ngClass]="{'button-invalid' : (newUserForm.pristine || newUserForm.invalid || newUserForm.pending)}" type="submit" [disabled]="newUserForm.pristine || newUserForm.invalid || newUserForm.pending">
+                                    <span *ngIf="!newUserForm.pending">Add</span>
+                                    <span *ngIf="newUserForm.pending">Pending</span>
+                                </button>
+
+                                <span *ngIf="newUserError" class="show-error">{{newUserError}}</span>
+                                <span *ngIf="newUserMessage" class="show-success">{{newUserMessage}}</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
