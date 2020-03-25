@@ -42,7 +42,7 @@
             </div>
 
             <span [ngClass]="{'active' : editActive}" class="edit-icon"><i class="fas fa-pencil-alt"></i></span>
-            <span class="add-icon"><i class="fas fa-plus"></i></span>
+            <span class="add-icon" routerLink="new"><i class="fas fa-plus"></i></span>
             <span (click)="onDeleteButtonClick()" [ngClass]="{'active' : deleteActive}" class="delete-icon"><i class="fas fa-trash-alt"></i></span>
             <span class="print-icon no-print" (click)="printPage()"><i class="fas fa-print"></i></span>
 

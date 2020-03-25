@@ -6,12 +6,14 @@ import {RedirectComponent} from "./pages/redirect/redirect.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {AuditComponent} from "./pages/audit/audit.component";
 import {UsersComponent} from "./pages/users/users.component";
+import {CreateUserComponent} from "./pages/create-user/create-user.component";
 
 const routes: Routes = [
     { path: '', component: RedirectComponent },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'dashboard/users', component: UsersComponent },
+    { path: 'dashboard/users/new', component: CreateUserComponent },
     { path: 'dashboard/audit', component: AuditComponent },
     { path: '**', component: NotFoundComponent  }
 ];

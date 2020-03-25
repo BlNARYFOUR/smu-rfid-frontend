@@ -13,6 +13,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AuditComponent } from './pages/audit/audit.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import { UsersComponent } from './pages/users/users.component';
+import { CreateUserComponent } from './pages/create-user/create-user.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { UsersComponent } from './pages/users/users.component';
         RedirectComponent,
         NotFoundComponent,
         AuditComponent,
-        UsersComponent
+        UsersComponent,
+        CreateUserComponent
     ],
     imports: [
         BrowserModule,
