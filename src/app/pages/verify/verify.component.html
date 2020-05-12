@@ -1,5 +1,10 @@
 <main>
     <div class="container text-center">
+        <ng-container *ngIf="!verified">
+            <h2>Verify pending...</h2>
+            <h3>Do not reload the page!</h3>
+        </ng-container>
+
         <ng-container *ngIf="verifyMessage">
             <h2>Success!</h2>
             <h3>{{verifyMessage}}</h3>

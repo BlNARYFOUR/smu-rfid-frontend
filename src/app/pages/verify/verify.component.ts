@@ -11,6 +11,7 @@ export class VerifyComponent implements OnInit {
 
     verifyMessage: string = "";
     verifyError: string = "";
+    verified: boolean = false;
 
     constructor(
         private _authService: AuthService,
@@ -27,15 +28,15 @@ export class VerifyComponent implements OnInit {
     verifySubmit(token) {
         this._authService.verify(token).subscribe({
             next: (data: any) => {
+                this.verifyError = null;
                 this.verifyMessage = data.message;
-                //this.verifyError = data.error;
+                this.verified = true;
                 console.log(data);
             },
             error: (data: any) => {
                 console.log(data.error);
-
                 this.verifyMessage = null;
-
+                this.verified = true;
                 if(data.error) {
                     this.verifyError = data.error.error ? data.error.error : 'Verification failed. Try again later.';
                 }
