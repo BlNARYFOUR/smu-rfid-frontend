@@ -1,0 +1,13 @@
+<main>
+    <div class="container text-center">
+        <ng-container *ngIf="verifyMessage">
+            <h2>Success!</h2>
+            <h3>{{verifyMessage}}</h3>
+        </ng-container>
+
+        <ng-container *ngIf="verifyError">
+            <h2>Oops!</h2>
+            <h3>{{verifyError}}</h3>
+        </ng-container>
+    </div>
+</main>

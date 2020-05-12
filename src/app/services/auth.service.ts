@@ -38,4 +38,9 @@ export class AuthService {
     public register(userInfo: any) {
         return this._http.post(this.registerUrl, userInfo);
     }
+
+    public verify(token: string) {
+        let t = {'token': token};
+        return this._http.post(this.verifyUrl, t);
+    }
 }

@@ -14,6 +14,7 @@ import { AuditComponent } from './pages/audit/audit.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import { UsersComponent } from './pages/users/users.component';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
+import { VerifyComponent } from './pages/verify/verify.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
         NotFoundComponent,
         AuditComponent,
         UsersComponent,
-        CreateUserComponent
+        CreateUserComponent,
+        VerifyComponent
     ],
     imports: [
         BrowserModule,
